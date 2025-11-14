@@ -128,4 +128,16 @@ Electron-Grok is a native desktop application that provides an intuitive interfa
 - Network failures: Offline queue and retry logic
 - Data loss: Automatic backups and recovery
 
-This design maintains minimal complexity while ensuring reliable, performant access to Grok's capabilities through a native desktop experience.
+This design maintains minimal complexity while ensuring reliable, performant access to Grok's capabilities through a native desktop experience.-e 
+## Call for Contributions
+
+We welcome contributions to Electron-Grok! This MISSION.md outlines the project vision and technical approach. If you have ideas for improvements, new features, or want to help implement any part of this design, please review this document and submit your contributions via pull requests.
+
+Areas of particular interest:
+- UI/UX enhancements
+- Performance optimizations
+- Cross-platform improvements
+- Security enhancements
+- Documentation and testing
+
+See CONTRIBUTING.md for guidelines (coming soon).
