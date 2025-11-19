@@ -1,1 +1,16 @@
-# Task 010: Keyboard Shortcuts\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 010 of 18.\n\n## Objective\nAdd global keyboard shortcuts as per README.\n\n## Steps\n1. Use electron-global-shortcut in main process.\n2. Implement: Cmd/Ctrl+N for new convo, Cmd/Ctrl+K clear, Cmd/Ctrl+, settings.\n3. For new/clear: Reset store and UI.\n4. Create basic settings modal.\n5. Register shortcuts on app ready, unregister on close.\n\n## Verification\n- Shortcuts trigger correct actions.\n\nAfter completing this task, read and execute the next: tasks/task-011.md\n\n---\n*Electron-Grok Implementation Chain - Task 010/018*
+# Task 010: (Intentionally Skipped)
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step.
+Follow the coding style constraints described in Task 001.
+
+## Objective
+Keep the application minimal and focused; do not add dedicated accessibility-only features or extra UI chrome in this phase.
+
+## Steps
+1. Do not implement additional accessibility-specific features (ARIA annotations, screen reader announcements, or similar) beyond what falls out of clean, semantic HTML.
+2. Keep the UI as simple as possible and proceed directly to Task 011.
+
+## Verification
+- No new accessibility-specific subsystems or UI elements were added as part of this task.
+
+After completing this task, read and execute the next: tasks/task-011.md

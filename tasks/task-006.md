@@ -1,1 +1,19 @@
-# Task 006: Basic Message Sending/Receiving UI\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 006 of 18.\n\n## Objective\nImplement simple chat UI for sending/receiving messages.\n\n## Steps\n1. In App.tsx, create input field, send button, and message list.\n2. Use Zustand store for messages array.\n3. On send, invoke IPC 'send-to-python' with user message, add to store.\n4. On 'python-response', add AI message to store.\n5. Render messages with timestamps.\n\n## Verification\n- Type and send message; see user and AI messages in UI.\n\nAfter completing this task, read and execute the next: tasks/task-007.md\n\n---\n*Electron-Grok Implementation Chain - Task 006/018*
+# Task 006: Basic Message Sending/Receiving UI
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step.
+Follow the coding style constraints described in Task 001.
+
+## Objective
+Implement a simple chat UI for sending and receiving messages.
+
+## Steps
+1. In `App.tsx`, create an input field, send button, and message list.
+2. Use a Zustand store to hold the messages array (each with role, content, and timestamp).
+3. On send, add the user message to the store and invoke the `'send-to-python'` IPC channel with the message text.
+4. On `'python-response'`, add the AI message to the store.
+5. Render messages in order with timestamps so the conversation is easy to follow.
+
+## Verification
+- You can type and send a message; both user and AI messages appear in the UI.
+
+After completing this task, read and execute the next: tasks/task-007.md

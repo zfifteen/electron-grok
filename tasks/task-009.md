@@ -1,1 +1,16 @@
-# Task 009: Theme Support (Dark/Light)\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 009 of 18.\n\n## Objective\nImplement dark and light theme switching.\n\n## Steps\n1. Add theme state to Zustand store (system/preference).\n2. Use CSS variables or Tailwind themes for styling.\n3. Detect system preference on load; allow manual toggle in settings.\n4. Persist theme choice.\n5. Update UI elements (e.g., backgrounds, text colors).\n\n## Verification\n- Toggle theme; UI updates accordingly.\n\nAfter completing this task, read and execute the next: tasks/task-010.md\n\n---\n*Electron-Grok Implementation Chain - Task 009/018*
+# Task 009: (Intentionally Skipped)
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step.
+Follow the coding style constraints described in Task 001.
+
+## Objective
+Keep the application minimal and focused; do not add global keyboard shortcuts in this version.
+
+## Steps
+1. Do not register global keyboard shortcuts (no `globalShortcut` usage in the main process for this app).
+2. Rely on the existing point-and-click UI for all actions.
+
+## Verification
+- There are no app-specific global keyboard shortcuts registered.
+
+After completing this task, read and execute the next: tasks/task-010.md

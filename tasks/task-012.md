@@ -1,1 +1,17 @@
-# Task 012: Multi-Conversation Support\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 012 of 18.\n\n## Objective\nEnable multiple conversation tabs/sessions.\n\n## Steps\n1. Add conversations array to store; each with ID and messages.\n2. Create sidebar for conversation list; new convo button.\n3. Switch between convos: Load respective messages.\n4. Persist all convos.\n5. Update IPC to include convo ID if needed.\n\n## Verification\n- Create/switch between multiple convos.\n\nAfter completing this task, read and execute the next: tasks/task-013.md\n\n---\n*Electron-Grok Implementation Chain - Task 012/018*
+# Task 012: (Intentionally Skipped)
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step.
+Follow the coding style constraints described in Task 001.
+
+## Objective
+Avoid import/export features and additional data handling; keep the app minimal and focused on live, in-memory chat only.
+
+## Steps
+1. Do not add export or import functionality (no JSON download/upload, no extra file dialogs for conversations).
+2. Do not introduce any new persistence mechanism or background data processing.
+3. Proceed directly to Task 013 without introducing any new UI for import/export or data management.
+
+## Verification
+- There is no export or import conversation feature in the app (no buttons or menu items for it).
+
+After completing this task, read and execute the next: tasks/task-013.md

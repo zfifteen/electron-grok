@@ -1,1 +1,17 @@
-# Task 015: Performance Monitoring\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 015 of 18.\n\n## Objective\nImplement basic performance tracking.\n\n## Steps\n1. Use Electron's performance APIs or simple timers.\n2. Track startup time, message response time in store.\n3. Add dev-only overlay or console logs for metrics.\n4. Ensure memory usage monitoring (process.getSystemMemoryInfo).\n5. Alert if exceeding thresholds from MISSION.md.\n\n## Verification\n- Logs show metrics within limits.\n\nAfter completing this task, read and execute the next: tasks/task-016.md\n\n---\n*Electron-Grok Implementation Chain - Task 015/018*
+# Task 015: Packaging and Distribution
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step.
+Follow the coding style constraints described in Task 001.
+
+## Objective
+Prepare the minimal Electron-Grok application for distribution.
+
+## Steps
+1. Set up `electron-builder` configuration for the target platform(s) using the minimal set of options required.
+2. Build distributables for the current platform.
+3. Install and launch the built application to confirm it starts correctly and the basic chat flow works.
+4. Update `README.md` with any necessary setup or build instructions discovered during packaging.
+
+## Verification
+- Build succeeds and produces working binaries for the current platform.
+- The packaged app launches and supports the same minimal chat flow as the development build.
