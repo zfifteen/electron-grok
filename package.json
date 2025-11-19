@@ -20,7 +20,6 @@
     "url": "https://github.com/zfifteen/electron-grok/issues"
   },
   "homepage": "https://github.com/zfifteen/electron-grok#readme",
-  "devDependencies": {
   "build": {
     "appId": "com.electron.electron-grok",
     "productName": "Electron-Grok",
@@ -34,6 +33,7 @@
       "node_modules/**/*"
     ]
   },
+  "devDependencies": {
     "electron": "^39.2.2",
     "electron-builder": "^26.0.12"
   },

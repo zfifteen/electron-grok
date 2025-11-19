@@ -23,6 +23,7 @@ def main():
         line = line.strip()
         if not line:
             continue
+        id = None
         try:
             data = json.loads(line)
             id = data.get('id')
