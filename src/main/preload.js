@@ -5,4 +5,5 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onPong: (callback) => ipcRenderer.on('pong', callback),
   sendToPython: (data) => ipcRenderer.invoke('send-to-python', data),
   onPythonResponse: (callback) => ipcRenderer.on('python-response', callback),
+  onBackendError: (callback) => ipcRenderer.on('backend-error', callback),
 });

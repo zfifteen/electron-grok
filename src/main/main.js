@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const log = require('electron-log');
 const { spawn } = require('child_process');
 const path = require('path');
 const { ipcMain } = require('electron');
@@ -20,7 +21,9 @@ function createWindow() {
 
 app.whenReady().then(() => {
   pythonProcess = spawn('python', [path.join(__dirname, '../../python/backend.py')], { stdio: ['pipe', 'pipe', 'inherit'] });
+  log.info('Spawning Python backend process');
   pythonProcess.stdout.on('data', (data) => {
+    log.debug('Received data from Python:', data.toString());
     const lines = data.toString().split('\n');
     lines.forEach(line => {
       if (line.trim()) {
@@ -35,6 +38,11 @@ app.whenReady().then(() => {
     });
   });
   pythonProcess.on('exit', (code) => {
+    if (code !== 0) {
+      const windows = BrowserWindow.getAllWindows();
+      windows.forEach(win => win.webContents.send('backend-error', 'Lost connection to backend; please restart the app.'));
+    }
+    log.info('Python process exited with code', code);
     console.log('Python process exited with code', code);
   });
   createWindow();
@@ -45,6 +53,7 @@ ipcMain.on('ping', (event) => {
 });
 
 ipcMain.handle('send-to-python', async (event, data) => {
+  log.info('Sending message to Python:', data);
   if (pythonProcess && pythonProcess.stdin) {
     const payload = JSON.stringify(data) + '\n';
     pythonProcess.stdin.write(payload);
