@@ -1,1 +1,23 @@
-# Task 018: Final Integration, Testing, and Build\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is the final Task 018 of 18.\n\n## Objective\nIntegrate all features, test, and prepare for build.\n\n## Steps\n1. Run full integration tests: Chat, themes, shortcuts, multi-convo, export, plugins.\n2. Fix any bugs found.\n3. Set up electron-builder for packaging.\n4. Add auto-updater if possible.\n5. Build and test distributables for current platform.\n6. Update README with setup instructions.\n\n## Verification\n- App runs end-to-end; meets all success criteria in MISSION.md.\n- Build succeeds; app launches from package.\n\nCongratulations! All tasks complete. Review the full app and consider deployment.\n\n---\n*Electron-Grok Implementation Chain - Task 018/018 - COMPLETE*
+# Task 018: Final Integration, Testing, and Build
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step. This is the final Task 018 of 18.
+
+## Objective
+Integrate all features, test, and prepare for build.
+
+## Steps
+1. Run full integration tests: Chat, themes, shortcuts, multi-convo, export, plugins.
+2. Fix any bugs found.
+3. Set up electron-builder for packaging.
+4. Add auto-updater if possible.
+5. Build and test distributables for current platform.
+6. Update README with setup instructions.
+
+## Verification
+- App runs end-to-end; meets all success criteria in MISSION.md.
+- Build succeeds; app launches from package.
+
+Congratulations! All tasks complete. Review the full app and consider deployment.
+
+---
+*Electron-Grok Implementation Chain - Task 018/018 - COMPLETE*

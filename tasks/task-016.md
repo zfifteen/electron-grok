@@ -1,1 +1,21 @@
-# Task 015: Performance Monitoring\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 015 of 18.\n\n## Objective\nImplement basic performance tracking.\n\n## Steps\n1. Use Electron's performance APIs or simple timers.\n2. Track startup time, message response time in store.\n3. Add dev-only overlay or console logs for metrics.\n4. Ensure memory usage monitoring (process.getSystemMemoryInfo).\n5. Alert if exceeding thresholds from MISSION.md.\n\n## Verification\n- Logs show metrics within limits.\n\nAfter completing this task, read and execute the next: tasks/task-016.md\n\n---\n*Electron-Grok Implementation Chain - Task 015/018*
+# Task 016: API Key Management
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 016 of 18.
+
+## Objective
+Implement robust error handling and logging.
+
+## Steps
+1. Add error boundaries in React components.
+2. Use electron-log for logging to a file.
+3. Catch errors from Python process and display user-friendly messages.
+4. Log API errors, UI errors, and main process errors.
+5. Provide a "View Logs" button in settings.
+
+## Verification
+- Errors are caught gracefully; logs are written.
+
+After completing this task, read and execute the next: tasks/task-018.md
+
+---
+*Electron-Grok Implementation Chain - Task 016/018*
