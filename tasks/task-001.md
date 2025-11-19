@@ -1,9 +1,18 @@
 # Task 001: Initialize Electron Project Structure
 
-You are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 001 of 18.
+You are an expert software engineer implementing the Electron-Grok desktop app step by step.
 
 ## Objective
 Set up the basic Electron project structure following the architecture in MISSION.md.
+
+Always follow the constraints and style in `MISSION.md` and `CODING_STYLE.md` when making changes.
+
+## Coding Style (applies to all tasks)
+- Write the smallest amount of code that satisfies the current task; do not add features, abstractions, or hooks “just in case.”
+- Prefer simplifying or deleting existing code over adding new layers or scaffolding.
+- Keep control flow flat and explicit (use guard clauses over deep nesting) and avoid extra branches that do not earn their keep.
+- Use clear, plain-language names that match the domain; avoid clever patterns that need comments to explain.
+- Do not add logging, configuration, CLI flags, or other behavior beyond what is explicitly required by these tasks.
 
 ## Steps
 1. Ensure you're in the electron-grok root directory.
@@ -19,6 +28,3 @@ Set up the basic Electron project structure following the architecture in MISSIO
 - No changes to existing files if they exist; integrate instead.
 
 After completing this task, read and execute the next: tasks/task-002.md
-
----
-*Electron-Grok Implementation Chain - Task 001/018*

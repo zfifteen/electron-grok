@@ -1,1 +1,19 @@
-# Task 003: Python Backend Setup\n\nYou are an expert software engineer implementing the Electron-Grok desktop app step by step. This is Task 003 of 18.\n\n## Objective\nInitialize the Python backend with xAI SDK.\n\n## Steps\n1. In python/, create requirements.txt with `xai-sdk` and `pyyaml`.\n2. Run `pip install -r requirements.txt` (assume virtualenv if needed).\n3. Create backend.py: Basic script to load API key from env and test Grok client initialization.\n4. Add a simple function to send a test message to Grok and return response.\n5. Handle errors and print output for now.\n\n## Verification\n- Run `python python/backend.py` with XAI_API_KEY env set; gets response from Grok.\n\nAfter completing this task, read and execute the next: tasks/task-004.md\n\n---\n*Electron-Grok Implementation Chain - Task 003/018*
+# Task 003: Python Backend Setup
+
+You are an expert software engineer implementing the Electron-Grok desktop app step by step.
+Follow the coding style constraints described in Task 001.
+
+## Objective
+Initialize the Python backend with the xAI SDK.
+
+## Steps
+1. In `python/`, create `requirements.txt` with `xai-sdk-python` and `pyyaml` (matching `MISSION.md`).
+2. Run `pip install -r requirements.txt` (assume a virtual environment if needed).
+3. Create `backend.py`: load the `XAI_API_KEY` from the environment and initialize the Grok client using the xAI SDK.
+4. Add a simple function to send a test message to Grok and return the response (print it to stdout for now).
+5. Handle errors gracefully (e.g., missing API key, network errors) and print clear error messages.
+
+## Verification
+- Run `python python/backend.py` with `XAI_API_KEY` set in the environment and confirm you get a response from Grok.
+
+After completing this task, read and execute the next: tasks/task-004.md

@@ -6,8 +6,8 @@ A native desktop application providing intuitive access to xAI's Grok AI model t
 
 - **Native Desktop Experience**: Cross-platform Electron app for macOS, Windows, and Linux
 - **Real-time Chat Interface**: Seamless conversation with Grok AI
-- **Session Persistence**: Maintain conversation history across application restarts
-- **Modern UI**: Clean, responsive design with dark/light theme support
+- **Ephemeral Conversations**: Chat history is kept in memory only and cleared on restart
+- **Minimal UI**: Clean, responsive single-conversation view
 - **Performance Optimized**: Fast startup and responsive interactions
 
 ## Installation
@@ -47,15 +47,9 @@ npm run dist
 
 ## Usage
 
-1. Launch the application
-2. Enter your xAI API key in settings
-3. Start chatting with Grok
-
-### Keyboard Shortcuts
-
-- `Ctrl/Cmd + N`: New conversation
-- `Ctrl/Cmd + K`: Clear conversation
-- `Ctrl/Cmd + ,`: Open settings
+1. Set your `XAI_API_KEY` environment variable.
+2. Launch the application.
+3. Start chatting with Grok in a single, ephemeral conversation.
 
 ## Development
 
