@@ -1,0 +1,43 @@
+{
+  "name": "electron-grok",
+  "version": "1.0.0",
+  "description": "A native desktop application providing intuitive access to xAI's Grok AI model through a modern Electron interface.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron src/main/main.js",
+    "build": "npm run build --prefix src/renderer && electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zfifteen/electron-grok.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zfifteen/electron-grok/issues"
+  },
+  "homepage": "https://github.com/zfifteen/electron-grok#readme",
+  "build": {
+    "appId": "com.electron.electron-grok",
+    "productName": "Electron-Grok",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/main/**/*",
+      "src/renderer/dist/**/*",
+      "python/**/*",
+      "node_modules/**/*"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^39.2.2",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.3"
+  }
+}

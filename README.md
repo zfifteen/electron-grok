@@ -46,6 +46,15 @@ npm run dist
 ```
 
 ## Usage
+## Building
+
+To build the app for distribution:
+
+```bash
+npm run build
+```
+
+This builds the React renderer and packages the Electron app using electron-builder.
 
 1. Set your `XAI_API_KEY` environment variable.
 2. Launch the application.
