@@ -2,16 +2,16 @@ declare global {
   interface Window {
     electronAPI: {
       sendPing: () => void;
-      onPong: (callback: (event: any, data: string) => void) => void;
+      onPong: (callback: (event: any, data: string) => void) => () => void;
       sendToPython: (data: any) => Promise<any>;
-      onPythonResponse: (callback: (event: any, data: any) => void) => void;
-      onBackendError: (callback: (event: any, message: string) => void) => void;
+      onPythonResponse: (callback: (event: any, data: any) => void) => () => void;
+      onBackendError: (callback: (event: any, message: string) => void) => () => void;
     };
   }
 }
 
 import { useEffect, useState, useRef } from 'react';
-import { useChatStore, Message } from './store';
+import { useChatStore, type Message } from './store';
 
 function App() {
   const { messages, addMessage } = useChatStore();
@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     if (window.electronAPI) {
-      window.electronAPI.onPythonResponse((event, data) => {
+      const unsubscribeResponse = window.electronAPI.onPythonResponse((_event, data) => {
         setIsLoading(false);
         if (data.reply) {
           const aiMessage: Message = {
@@ -49,21 +49,54 @@ function App() {
           addMessage(errorMessage);
         }
       });
+
+      const unsubscribeError = window.electronAPI.onBackendError((_event, message) => {
+        setIsLoading(false);
+        const errorMessage: Message = {
+          id: Date.now().toString(),
+          role: 'assistant',
+          content: 'Backend Error: ' + message,
+          timestamp: Date.now(),
+        };
+        addMessage(errorMessage);
+      });
+
+      return () => {
+        unsubscribeResponse();
+        unsubscribeError();
+      };
     }
   }, [addMessage]);
 
+  const sanitizeInput = (text: string): string => {
+    return text.trim().slice(0, 4000);
+  };
+
   const sendMessage = () => {
     if (!input.trim() || isLoading) return;
+
+    const sanitized = sanitizeInput(input);
+    if (!sanitized) return;
+
     setIsLoading(true);
     const userMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
-      content: input,
+      content: sanitized,
       timestamp: Date.now(),
     };
     addMessage(userMessage);
+
     if (window.electronAPI) {
-      window.electronAPI.sendToPython({ id: userMessage.id, message: input });
+      // Send conversation history for context preservation
+      const conversationHistory = [...messages, userMessage].map(msg => ({
+        role: msg.role,
+        content: msg.content
+      }));
+      window.electronAPI.sendToPython({
+        id: userMessage.id,
+        messages: conversationHistory
+      });
     }
     setInput('');
   };

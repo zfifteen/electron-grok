@@ -27,8 +27,23 @@ def main():
         try:
             data = json.loads(line)
             id = data.get('id')
-            message = data.get('message', '')
-            response = client.chat(message)
+
+            # Support conversation history for context preservation
+            messages = data.get('messages', [])
+            if messages:
+                # Use conversation history if provided
+                formatted_messages = []
+                for msg in messages:
+                    formatted_messages.append({
+                        'role': msg.get('role', 'user'),
+                        'content': msg.get('content', '')
+                    })
+                response = client.chat(formatted_messages)
+            else:
+                # Fall back to single message for backward compatibility
+                message = data.get('message', '')
+                response = client.chat(message)
+
             reply = {'id': id, 'reply': str(response)}
             sys.stdout.write(json.dumps(reply) + '\n')
             sys.stdout.flush()

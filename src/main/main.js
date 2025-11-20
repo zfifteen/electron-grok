@@ -1,10 +1,46 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, dialog } = require('electron');
 const log = require('electron-log');
-const { spawn } = require('child_process');
+const { spawn, execSync } = require('child_process');
 const path = require('path');
 const { ipcMain } = require('electron');
 
 let pythonProcess;
+let buffer = '';
+
+function findPython() {
+  const pythonCommands = ['python3', 'python'];
+  for (const cmd of pythonCommands) {
+    try {
+      execSync(`${cmd} --version`, { stdio: 'pipe' });
+      log.info(`Found Python executable: ${cmd}`);
+      return cmd;
+    } catch (e) {
+      continue;
+    }
+  }
+  return null;
+}
+
+function validateEnvironment() {
+  const pythonCmd = findPython();
+  if (!pythonCmd) {
+    const error = 'Python is not installed or not in PATH. Please install Python 3.x to use this application.';
+    log.error(error);
+    dialog.showErrorBox('Python Not Found', error);
+    app.quit();
+    return null;
+  }
+
+  if (!process.env.XAI_API_KEY) {
+    const error = 'XAI_API_KEY environment variable is not set. Please set it before launching the application.';
+    log.error(error);
+    dialog.showErrorBox('Missing API Key', error);
+    app.quit();
+    return null;
+  }
+
+  return pythonCmd;
+}
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -26,11 +62,17 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  pythonProcess = spawn('python', [path.join(__dirname, '../../python/backend.py')], { stdio: ['pipe', 'pipe', 'inherit'] });
+  const pythonCmd = validateEnvironment();
+  if (!pythonCmd) return;
+
+  pythonProcess = spawn(pythonCmd, [path.join(__dirname, '../../python/backend.py')], { stdio: ['pipe', 'pipe', 'inherit'] });
   log.info('Spawning Python backend process');
   pythonProcess.stdout.on('data', (data) => {
     log.debug('Received data from Python:', data.toString());
-    const lines = data.toString().split('\n');
+    buffer += data.toString();
+    const lines = buffer.split('\n');
+    buffer = lines.pop() || '';
+
     lines.forEach(line => {
       if (line.trim()) {
         try {
@@ -38,7 +80,7 @@ app.whenReady().then(() => {
           const windows = BrowserWindow.getAllWindows();
           windows.forEach(win => win.webContents.send('python-response', response));
         } catch (e) {
-          console.error('Failed to parse Python response:', e);
+          log.error('Failed to parse Python response:', e, 'Line:', line);
         }
       }
     });
