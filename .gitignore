@@ -1,3 +1,10 @@
 .idea/
 .snapshots/
 *.iml
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+*.log
+git-commit-and-push.sh

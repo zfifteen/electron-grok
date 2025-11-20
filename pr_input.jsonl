@@ -1,0 +1,2 @@
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"grok","version":"1.0"}}}
+{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"create_pull_request","arguments":{"owner":"zfifteen","repo":"electron-grok","title":"Draft: Call for Contributions in MISSION.md","head":"mission-contributions","base":"main","draft":true,"body":"Adding a call for contributions section to MISSION.md to encourage community involvement and gather feedback on the project vision."}}}
