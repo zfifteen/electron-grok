@@ -1,0 +1,2 @@
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"grok","version":"1.0"}}}
+{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"create_repository","arguments":{"name":"electron-grok","description":"A native desktop application providing intuitive access to xAI's Grok AI model through a modern Electron interface.","private":false}}}

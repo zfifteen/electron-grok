@@ -8,6 +8,23 @@ let pythonProcess;
 let buffer = '';
 
 function findPython() {
+  // Prefer a project-local venv if it exists
+  const repoRoot = path.join(__dirname, '..', '..');
+  const venvCandidates = [
+    path.join(repoRoot, '.venv', 'bin', 'python3'),
+    path.join(repoRoot, '.venv', 'bin', 'python'),
+  ];
+
+  for (const p of venvCandidates) {
+    try {
+      execSync(`"${p}" --version`, { stdio: 'pipe' });
+      log.info(`Found Python executable (venv): ${p}`);
+      return p;
+    } catch (e) {
+      // ignore
+    }
+  }
+
   const pythonCommands = ['python3', 'python'];
   for (const cmd of pythonCommands) {
     try {
